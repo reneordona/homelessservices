@@ -47,13 +47,11 @@
     border-bottom: 0.15vmin solid var(--rule);
     position: relative; z-index: 2;
   }
-
   .header-logo {
     height: 7vh;
     width: auto;
     display: block;
   }
-
   .header-right { display: flex; align-items: center; gap: 1.5vmin; }
   .header-right .pulse {
     width: 1vmin; height: 1vmin;
@@ -139,7 +137,9 @@
     border: 0.15vmin solid var(--rule);
     border-radius: 1.4vmin;
     padding: 2.8vmin 3vmin;
-    display: flex; flex-direction: column; gap: 0;
+    display: flex; flex-direction: column;
+    /* justify-content space-between pushes sections to fill the full height */
+    justify-content: space-between;
     box-shadow: 0 1vmin 3vmin rgba(26,37,48,0.04), 0 0.3vmin 0.8vmin rgba(26,37,48,0.03);
     overflow: hidden;
     animation: fadeUp 0.9s 0.35s both cubic-bezier(0.22,1,0.36,1);
@@ -151,52 +151,54 @@
 
   .card-name {
     font-family: 'Fraunces', serif; font-weight: 700;
-    font-size: 2.5vmin; color: var(--ink); line-height: 1.1;
-    margin-bottom: 2vmin;
+    font-size: 2.8vmin; color: var(--ink); line-height: 1.1;
   }
 
-  .divider { height: 0.15vmin; background: var(--rule); flex-shrink: 0; margin: 1.5vmin 0; }
+  .divider { height: 0.15vmin; background: var(--rule); flex-shrink: 0; }
 
   .info-row { display: flex; align-items: flex-start; gap: 1.5vmin; }
-  .info-icon { width: 2.8vmin; height: 2.8vmin; flex-shrink: 0; color: var(--cyan-dark); margin-top: 0.15vmin; }
+  .info-icon { width: 3.2vmin; height: 3.2vmin; flex-shrink: 0; color: var(--cyan-dark); margin-top: 0.15vmin; }
   .info-icon svg { width: 100%; height: 100%; }
   .info-text { flex: 1; line-height: 1.5; }
   .info-label {
-    font-size: 1.05vmin; font-weight: 700; letter-spacing: 0.25em;
-    text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.4vmin;
+    font-size: 1.2vmin; font-weight: 700; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.5vmin;
   }
-  .info-main { font-size: 1.85vmin; font-weight: 600; color: var(--ink); }
-  .info-sub  { font-size: 1.55vmin; color: var(--ink-soft); }
+  .info-main { font-size: 2.2vmin; font-weight: 600; color: var(--ink); }
+  .info-sub  { font-size: 1.8vmin; color: var(--ink-soft); }
+
+  /* hours section */
+  .hours-section { display: flex; flex-direction: column; gap: 1.2vmin; }
 
   .hours-label {
-    font-size: 1.05vmin; font-weight: 700; letter-spacing: 0.25em;
-    text-transform: uppercase; color: var(--ink-muted); margin-bottom: 1.2vmin;
+    font-size: 1.2vmin; font-weight: 700; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--ink-muted);
     display: flex; align-items: center; gap: 0.8vmin;
   }
-  .hours-label svg { width: 1.6vmin; height: 1.6vmin; color: var(--cyan); }
+  .hours-label svg { width: 1.8vmin; height: 1.8vmin; color: var(--cyan); }
 
   .hours-rows { display: flex; flex-direction: column; gap: 0.8vmin; }
 
   .hours-row {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 1.5vmin;
-    min-height: 5.5vmin;
+    padding: 0 1.6vmin;
+    min-height: 6vmin;
     background: var(--cyan-soft);
     border-radius: 0.7vmin; gap: 2vmin;
   }
   .hours-row.special     { background: #fff7ed; border: 0.12vmin solid #f3d9b1; }
   .hours-row.closed-note { background: var(--paper-warm); border: 0.12vmin dashed var(--rule); }
 
-  .hours-days { font-size: 1.55vmin; font-weight: 600; color: var(--ink); line-height: 1.3; flex: 1; }
-  .hours-days .sub { font-size: 1.2vmin; font-weight: 400; color: var(--ink-muted); }
+  .hours-days { font-size: 1.75vmin; font-weight: 600; color: var(--ink); line-height: 1.3; flex: 1; }
+  .hours-days .sub { font-size: 1.35vmin; font-weight: 400; color: var(--ink-muted); }
   .hours-time {
-    font-family: 'Fraunces', serif; font-size: 1.85vmin;
+    font-family: 'Fraunces', serif; font-size: 2.1vmin;
     font-weight: 700; color: var(--cyan-dark);
     text-align: right; white-space: nowrap;
   }
   .hours-row.special .hours-time { color: #b45309; }
   .hours-row.closed-note .hours-time {
-    font-size: 1.45vmin; color: var(--ink-muted);
+    font-size: 1.6vmin; color: var(--ink-muted);
     font-family: 'Inter', sans-serif; font-weight: 600;
   }
 
@@ -212,7 +214,6 @@
     display: block;
     animation: fadeIn 1.2s 0.2s both ease-out;
   }
-
   .photo-caption {
     position: absolute; bottom: 3vmin; right: 3vmin;
     z-index: 3;
@@ -222,9 +223,7 @@
     color: #fff;
     padding: 0.9vmin 1.6vmin;
     border-radius: 0.8vmin;
-    font-size: 1.15vmin;
-    font-weight: 500;
-    letter-spacing: 0.08em;
+    font-size: 1.15vmin; font-weight: 500; letter-spacing: 0.08em;
     border-left: 0.4vmin solid var(--cyan);
     animation: fadeUp 0.9s 0.9s both cubic-bezier(0.22,1,0.36,1);
   }
@@ -296,6 +295,8 @@
 
         <div class="card-name">Multi-Service Center</div>
 
+        <div class="divider"></div>
+
         <!-- Phone -->
         <div class="info-row">
           <div class="info-icon">
@@ -329,7 +330,7 @@
         <div class="divider"></div>
 
         <!-- Hours -->
-        <div>
+        <div class="hours-section">
           <div class="hours-label">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
